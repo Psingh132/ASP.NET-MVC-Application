@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using MovieRental.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnectionString"));
 
 var app = builder.Build();
 
